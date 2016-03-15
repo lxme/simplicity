@@ -1,0 +1,39 @@
+<project name="Engine" default="compile" basedir=".">
+	<property name="java.src" value="."/>
+	<property name="java.classes" value="./classes"/>
+	<property name="lib.dir" value="./lib"/>
+	<property name="junit.home" value="."/>
+	<property name="jar.dir" value="./jarlib"/>
+	<property name="test.src" value="."/>
+	<property name="test.dir" value="testing"/>
+	<property name="test.classes" value="${test.dir}/test-classes"/>
+	<property name="test.reports" value="${test.dir}/test-reports"/>
+
+	<target name="init">
+		<mkdir dir="${java.classes}"/>
+		<copy todir="${java.classes}">
+			<fileset dir="${basedir}">
+				<include name="*.PNG"/>
+				<include name="*.jpg"/>
+				<include name="*.png"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="clean">
+		<delete dir="${java.classes}"/>
+	</target>
+
+	<target name="compile" depends="init">
+		<javac srcdir="${java.src}" destdir="${java.classes}" includeantruntime="false">
+			<include name="**/*.java"/>
+		</javac>
+	</target>
+
+	<target name="run" depends="compile">
+		<java classname="Engine" classpath="${java.classes}" fork="true">
+			<!-- <classpath path="${./classes}"/> -->
+		</java>
+	</target>
+
+</project>
