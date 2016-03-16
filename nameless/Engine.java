@@ -36,7 +36,7 @@ public class Engine{
 		Thread t = new Thread();
 		t.start();
 		Engine e1 = new Engine("Engine Tester", 10, 10, 800, 800);
-		e1.addSprite(50, 100, 2, 0, 0, "C:/Users/Josh/Documents/GitHub/simplicity/nameless/test_image1.png", 0, 0, 20, 20);
+		e1.addSprite(50, 100, 2, 0, 0, "C:/Users/Josh/Documents/GitHub/lxme/simplicity/nameless/test_image1.png", 0, 0, 20, 20);
 		e1.addImageToSprite(0, 1, 20, 0, 20, 20);
 		e1.animateSprite(0);
 		try{
